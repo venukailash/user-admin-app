@@ -18,7 +18,8 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    email ? console.log(email) : setIsSubmitting(true);
+    if (email) console.log(email);
+    else setIsSubmitting(true);
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
