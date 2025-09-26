@@ -39,7 +39,7 @@ export default function Login() {
             placeholder="Your email ID..."
             onChange={handleEmailChange}
           ></input>
-          <button type="submit">
+          <button type="submit" title="email-submit">
             <FaArrowCircleRight className="pr-2 text-4xl" />
           </button>
         </div>
