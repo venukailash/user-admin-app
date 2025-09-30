@@ -11,10 +11,14 @@ export default function Login() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsSubmitting(false);
-    }, 3000);
-  });
+    if (isSubmitting) {
+      const timer = setTimeout(() => {
+        setIsSubmitting(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitting]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

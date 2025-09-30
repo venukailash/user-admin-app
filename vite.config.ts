@@ -8,8 +8,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
-    setupFiles:['./src/tests-setup.mts'],
+    setupFiles: ["./src/tests-setup.mts"],
     environment: "jsdom",
-    globals: true
+    globals: true,
+    exclude: ["**/node_modules/**"],
+    include: ["src/**/*.test.tsx", "src/**/*.test.ts"],
   },
 });

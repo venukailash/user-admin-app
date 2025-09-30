@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Navbar />
       <div className="bg-gradient-to-b from-indigo-50 to-indigo-100">
+      <Navbar />
         <Routes>
           <Route path="/login" element={<Login />}></Route>
         </Routes>
