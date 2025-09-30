@@ -28,7 +28,7 @@ export default function Login() {
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setIsSubmitting(false);
+  setIsSubmitting(false);
   };
 
   return (
