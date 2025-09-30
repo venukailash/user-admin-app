@@ -8,27 +8,27 @@ const FailureMessage = () => {
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   useEffect(() => {
-    if (isSubmitting) {
+    if (error) {
       const timer = setTimeout(() => {
-        setIsSubmitting(false);
+        setError(false);
       }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [isSubmitting]);
+  }, [error]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) console.log(email);
-    else setIsSubmitting(true);
+    else setError(true);
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setIsSubmitting(false);
+    setError(false);
   };
 
   return (
@@ -42,12 +42,17 @@ export default function Login() {
             className="pl-2 flex font-mono w-96 h-12 !outline-none"
             placeholder="Your email ID..."
             onChange={handleEmailChange}
+            value={email}
           ></input>
           <button type="submit" title="email-submit">
             <FaArrowCircleRight className="pr-2 text-4xl" />
           </button>
         </div>
-        {isSubmitting ? <FailureMessage /> : null}
+        {error && (
+          <div id="email-error" role="alert">
+            <FailureMessage />
+          </div>
+        )}
       </form>
     </div>
   );
