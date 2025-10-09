@@ -1,10 +1,7 @@
-import { IoMdMail } from "react-icons/io";
+import FailureMessage from "../components/FailureMessage";
 import { FaArrowCircleRight } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import React, { useEffect } from "react";
-
-const FailureMessage = () => {
-  return <p className="font-mono text-red-500">Enter your email ID</p>;
-};
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
@@ -50,7 +47,7 @@ export default function Login() {
         </div>
         {error && (
           <div id="email-error" role="alert">
-            <FailureMessage />
+            <FailureMessage msg="Enter your email ID" />
           </div>
         )}
       </form>
